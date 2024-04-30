@@ -1,0 +1,15 @@
+[Unit]
+Description=server
+After=network.target
+
+[Service]
+Type=simple
+User=ramin
+Group=ramin
+Environment="PYTHONPATH=$PYTHONPATH:/usr/local/lib/aarch64-linux-gnu/python3.11/site-packages"
+WorkingDirectory=/home/ramin/scripts
+ExecStart=/home/ramin/.virtualenvs/lensflow/bin/python3 /home/ramin/scripts/server.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
